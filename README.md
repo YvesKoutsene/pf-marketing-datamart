@@ -101,7 +101,7 @@ Les données doivent être placées dans le répertoire parent `home-credit-defa
 
 ---
 
-## 📬 Contact & Présentation
+## Contact & Présentation
 
 Ce projet a été entièrement conçu par **Jean-Yves**, étudiant passionné et candidat au poste d'Alternant Business Data Analyst chez BNP Paribas Personal Finance.
 *   **LinkedIn** : [Lien vers votre profil]
