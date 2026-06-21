@@ -60,7 +60,7 @@ bnp-pf-marketing-datamart/
 
 ---
 
-## 🛠️ Cartographie Métier (Fiche de Poste vs Livrables)
+## Cartographie Métier (Fiche de Poste vs Livrables)
 
 | Mission de la Fiche de Poste (BNP Paribas PF) | Livrable du Projet | Technologie Clé |
 | :--- | :--- | :---: |
