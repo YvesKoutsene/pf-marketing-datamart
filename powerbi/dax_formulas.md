@@ -1,4 +1,4 @@
-# Référentiel des Formules DAX — Tableau de bord Décisionnel 📊
+# Référentiel des Formules DAX — Tableau de bord Décisionnel
 
 Ce référentiel contient les mesures DAX (Data Analysis Expressions) conçues pour le modèle Power BI en étoile. Elles respectent les conventions de nommage professionnelles et sont optimisées pour le moteur VertiPaq.
 
@@ -124,3 +124,67 @@ DIVIDE(
 )
 ```
 *Interprétation : Un indice de 1.5 signifie que ce segment fait 50% de défauts de plus que la moyenne générale.*
+
+---
+
+## 5. Gouvernance & Qualité de la Donnée
+
+Ces mesures servent à piloter la qualité de la donnée sur la Page 3 du dashboard.
+
+### Index Qualité Global (Pour le visuel Gauge/Jauge)
+Il calcule la moyenne agrégée de nos contrôles clés : complétude des colonnes stratégiques et respect des règles de cohérence fonctionnelle.
+```dax
+[Index Qualité Global] = 
+-- 1. Taux de complétude des variables clés (CODE_GENDER, AMT_INCOME_TOTAL, AGE_YEARS, AMT_CREDIT)
+VAR _completude_gender = 
+    DIVIDE(
+        CALCULATE(COUNTROWS(D_CLIENT), NOT(ISBLANK(D_CLIENT[CODE_GENDER]))), 
+        COUNTROWS(D_CLIENT), 
+        0
+    )
+
+VAR _completude_income = 
+    DIVIDE(
+        CALCULATE(COUNTROWS(D_CLIENT), NOT(ISBLANK(D_CLIENT[AMT_INCOME_TOTAL]))), 
+        COUNTROWS(D_CLIENT), 
+        0
+    )
+
+VAR _completude_age = 
+    DIVIDE(
+        CALCULATE(COUNTROWS(D_CLIENT), NOT(ISBLANK(D_CLIENT[AGE_YEARS]))), 
+        COUNTROWS(D_CLIENT), 
+        0
+    )
+
+VAR _completude_credit = 
+    DIVIDE(
+        CALCULATE(COUNTROWS(F_APPLICATIONS), NOT(ISBLANK(F_APPLICATIONS[AMT_CREDIT]))), 
+        COUNTROWS(F_APPLICATIONS), 
+        0
+    )
+
+-- 2. Taux de validité des règles métiers (Âge >= 18 et Ancienneté pro <= Âge)
+VAR _validite_age = 
+    DIVIDE(
+        CALCULATE(COUNTROWS(D_CLIENT), D_CLIENT[AGE_YEARS] >= 18), 
+        COUNTROWS(D_CLIENT), 
+        0
+    )
+
+VAR _validite_anciennete = 
+    DIVIDE(
+        CALCULATE(COUNTROWS(D_CLIENT), D_CLIENT[EMPLOYMENT_YEARS] <= D_CLIENT[AGE_YEARS] || ISBLANK(D_CLIENT[EMPLOYMENT_YEARS])), 
+        COUNTROWS(D_CLIENT), 
+        0
+    )
+
+-- 3. Moyenne des 6 indicateurs de qualité
+RETURN
+DIVIDE(
+    _completude_gender + _completude_income + _completude_age + _completude_credit + _validite_age + _validite_anciennete,
+    6,
+    0
+)
+```
+
