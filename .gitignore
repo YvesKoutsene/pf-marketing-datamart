@@ -27,6 +27,10 @@ data/processed/
 *.tar.gz
 *.rar
 
+# Exceptions
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
 # IDE files
 .vscode/
 .idea/
