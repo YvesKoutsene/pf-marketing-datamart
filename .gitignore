@@ -53,3 +53,4 @@ scripts/generate_fiche_projection.py
 # Local preparation and methodology documents
 docs/pitch_presentation.md
 powerbi/dashboard_design.md
+dashboard_design.md
