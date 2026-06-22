@@ -41,3 +41,11 @@ data/processed/
 *.pbix.gitKeep
 powerbi/*.pbix
 !powerbi/.gitkeep
+
+# Local document generation scripts (not for GitHub)
+scripts/generate_docx_report.py
+scripts/generate_fiche_projection.py
+
+# Local preparation and methodology documents
+docs/pitch_presentation.md
+powerbi/dashboard_design.md
