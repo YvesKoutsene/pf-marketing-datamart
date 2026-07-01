@@ -3,11 +3,10 @@
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![SQL](https://img.shields.io/badge/SQL-Advanced-orange.svg?logo=postgresql&logoColor=white)](https://en.wikipedia.org/wiki/SQL)
 [![PowerBI](https://img.shields.io/badge/Power_BI-Interactive_Dashboards-yellow.svg?logo=power-bi&logoColor=black)](https://powerbi.microsoft.com/)
-[![Ecosystem](https://img.shields.io/badge/BNP_Paribas-Analytics_%26_BI-emerald.svg)](https://www.personalfinance.bnpparibas/)
 
 ## Présentation du Projet
 
-Ce projet simule l'activité réelle d'un **Business Data Analyst** au sein du **Centre d'expertise Analytics & BI** de **BNP Paribas Personal Finance**. 
+Ce projet simule l'activité réelle d'un **Business Data Analyst** au sein du **Centre d'expertise Analytics & BI** d'une Banque à ** Personal Finance**. 
 
 L'objectif principal est de piloter l'activité de crédit à la consommation en concevant un **Datamart Marketing** complet à partir de données réelles et anonymisées d'un leader du secteur (**Home Credit Default Risk**, disponible sur Kaggle), complétées par des données macro-économiques européennes (BCE, Eurostat).
 
